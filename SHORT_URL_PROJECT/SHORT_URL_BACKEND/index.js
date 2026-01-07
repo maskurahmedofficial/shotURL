@@ -11,7 +11,7 @@ const { default: mongoose } = require('mongoose')
 
 
 app.use(cors({
-    origin: "https://maskur-shorturl.vercel.app",
+    origin: "https://maskur-shorturl.vercel.app/",
     credentials: true
 }));
 
