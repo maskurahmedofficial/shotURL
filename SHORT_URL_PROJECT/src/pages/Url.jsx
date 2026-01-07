@@ -26,7 +26,7 @@ const Url = () => {
   };
 
   // short url button click
-  const handleShort = (e) => {
+  const handleShort = async (e) => {
     e.preventDefault();
     if (!longUrl) {
       setError("long url required");
@@ -35,16 +35,17 @@ const Url = () => {
 
     setError("");
 
-    axios
-      .post("http://localhost:9000/url/getURL", { longUrl })
-      .then((res) => {
-        setUrlResponse(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+try {
+   const res = await axios
+      .post("https://short-url-project-mu.vercel.app/url/getURL", { longUrl })
+      
+      const data = await res.data
+      console.log(res)
 
-    setLongUrl("");
+    // setLongUrl("");
+} catch (error) {
+  console.log(error)
+}
   };
 
   console.log(urlResponse)

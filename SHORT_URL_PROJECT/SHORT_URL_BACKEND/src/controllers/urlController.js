@@ -9,10 +9,10 @@ const urlController = async (req,res)=>{
     await new urlSchema({longUrl,shortCode:randomText}).save()
 
     
-    res.status(200).send({longUrl:longUrl,shortUrl:`http://localhost:9000/url/${randomText}`})
+    res.status(200).send({longUrl:longUrl})
   }
   catch(err){
-    res.status(501).send({message:'internal server error',error:err})
+    res.status(501).send({message:'internal server error',error: err.message})
   }
 }
 
